@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var x int
+	var x float
 	var y int
 
 	x = 1
