@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	var x float64
-	var y float64
+	var x int
+	var y int
 
 	x = 1
 	y = 2
