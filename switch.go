@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	x := 2
+	x := 4
 
 	switch x {
 	case 1:
