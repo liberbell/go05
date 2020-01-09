@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	x := 11
+	x := 21
 	if x > 5 {
 		fmt.Println("x is big")
 	}
@@ -16,5 +16,9 @@ func main() {
 
 	if x > 5 && x < 15 {
 		fmt.Println("x is just right")
+	}
+
+	if x < 20 || x > 30 {
+		fmt.Println("x is out of range")
 	}
 }
