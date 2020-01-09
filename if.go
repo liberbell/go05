@@ -8,9 +8,9 @@ func main() {
 		fmt.Println("x is big")
 	}
 
-  if x x > 100 {
-    fmt.Println("x is very big")
-  } else {
-    fmt.Println("x is not big")
-  }
+	if x > 100 {
+		fmt.Println("x is very big")
+	} else {
+		fmt.Println("x is not big")
+	}
 }
