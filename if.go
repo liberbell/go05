@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	x := 101
+	x := 11
 	if x > 5 {
 		fmt.Println("x is big")
 	}
