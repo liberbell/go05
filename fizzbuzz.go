@@ -8,6 +8,10 @@ func main() {
 			fmt.Println(i, "Fizz Buzzs")
 		} else if i%3 == 0 {
 			fmt.Println(i, "Fizz")
+		} else if i%5 == 0 {
+			fmt.Println(i, "Buzz")
+		} else {
+			fmt.Println(i)
 		}
 	}
 }
