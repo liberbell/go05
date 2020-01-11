@@ -21,4 +21,14 @@ func main() {
 		fmt.Println(a)
 		a++
 	}
+
+	fmt.Println("---------")
+	b := 0
+	for {
+		if b > 2 {
+			break
+		}
+		fmt.Println(b)
+		b++
+	}
 }
