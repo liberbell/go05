@@ -14,4 +14,11 @@ func main() {
 		}
 		fmt.Println(i)
 	}
+
+	fmt.Println("---------")
+	a := 0
+	for a < 3 {
+		fmt.Println(a)
+		a++
+	}
 }
