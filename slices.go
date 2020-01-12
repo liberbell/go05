@@ -7,4 +7,7 @@ func main() {
 	fmt.Printf("loons= %v (type %T)\n", loons, loons)
 
 	fmt.Println(len(loons))
+
+	fmt.Println("------")
+	fmt.Println(loons[1])
 }
