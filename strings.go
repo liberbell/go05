@@ -16,4 +16,12 @@ func main() {
 
 	fmt.Println("t" + book[1:])
 	fmt.Println("これはセールです。")
+
+	poem := `
+	The road goes ever on
+	Down from the door where it began
+	...
+	`
+
+	fmt.Println(poem)
 }
