@@ -15,4 +15,5 @@ func main() {
 	fmt.Println(book[4:])
 
 	fmt.Println("t" + book[1:])
+	fmt.Println("これはセールです。")
 }
