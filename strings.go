@@ -12,4 +12,5 @@ func main() {
 
 	fmt.Println(book[4:11])
 	fmt.Println(book[:4])
+	fmt.Println(book[4:])
 }
