@@ -23,4 +23,7 @@ func main() {
 
 	stocks["TSLA"] = 322.25
 	fmt.Println(stocks)
+
+	delete(stocks, "AMZN")
+	fmt.Println(stocks)
 }
