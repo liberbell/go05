@@ -20,4 +20,7 @@ func main() {
 	} else {
 		fmt.Println(value)
 	}
+
+	stocks["TSLA"] = 322.25
+	fmt.Println(stocks)
 }
