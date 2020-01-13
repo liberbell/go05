@@ -17,6 +17,7 @@ func main() {
 	for i := 0; i < len(loons); i++ {
 		fmt.Println(loons[i])
 	}
+	fmt.Println("------")
 
 	for i := range loons {
 		fmt.Println(loons[i])
