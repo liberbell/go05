@@ -22,4 +22,9 @@ func main() {
 	for i := range loons {
 		fmt.Println(loons[i])
 	}
+
+	fmt.Println("------")
+	for i, name := range loons {
+		fmt.Printf("%s at %d\n", name, i)
+	}
 }
