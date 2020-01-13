@@ -10,4 +10,5 @@ func main() {
 	}
 
 	fmt.Println(len(stocks))
+	fmt.Println(stocks[MSFT])
 }
