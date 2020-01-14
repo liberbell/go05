@@ -8,6 +8,6 @@ func doubleAt(values []int, i int) {
 
 func main() {
 	values := []int{1, 2, 3, 4}
-	doubleAt(values, 2)
+	doubleAt(values, 0)
 	fmt.Println(values)
 }
