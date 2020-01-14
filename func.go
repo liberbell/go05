@@ -15,5 +15,5 @@ func main() {
 	fmt.Println(val)
 
 	div, mod := divmod(7, 2)
-	fmt.Printf("div= %d, mod= %d", div, mod)
+	fmt.Printf("div= %d, mod= %d\n", div, mod)
 }
