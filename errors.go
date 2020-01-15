@@ -26,4 +26,11 @@ func main() {
 	} else {
 		fmt.Println(s2)
 	}
+
+	s3, err := sqrt(9)
+	if err != nil {
+		fmt.Printf("Error: %s\n", err)
+	} else {
+		fmt.Println(s3)
+	}
 }
