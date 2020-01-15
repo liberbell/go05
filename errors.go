@@ -27,7 +27,7 @@ func main() {
 		fmt.Println(s2)
 	}
 
-	s3, err := sqrt(9)
+	s3, err := sqrt(9.0)
 	if err != nil {
 		fmt.Printf("Error: %s\n", err)
 	} else {
