@@ -6,7 +6,7 @@ func doubleAt(values []int, i int) {
 	values[i] *= 2
 }
 
-func duble(n int) {
+func double(n int) {
 	n *= 2
 }
 
