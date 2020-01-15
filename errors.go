@@ -7,7 +7,7 @@ import (
 
 func sqrt(n float64) (float64, error) {
 	if n < 0 {
-		return 0.0, fmt.Println("sqrt of negative value (%f)", n)
+		return 0.0, fmt.Errorf("sqrt of negative value (%f)", n)
 	}
 	return math.Sqrt(n), nil
 }
