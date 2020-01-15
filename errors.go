@@ -19,4 +19,11 @@ func main() {
 	} else {
 		fmt.Println(s1)
 	}
+
+	s2, err := sqrt(-2.0)
+	if err != nil {
+		fmt.Printf("Error: %s\n", err)
+	} else {
+		fmt.Println(s2)
+	}
 }
