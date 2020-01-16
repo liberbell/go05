@@ -17,4 +17,14 @@ func contentType(url string) (string, err) {
 	if ctype == "" {
 		return "", fmt.Errorf("can't find Content-Type header")
 	}
+	return ctype, nil
+}
+
+func main() {
+	ctype, err := contentType("https://linkedin.com")
+	if err != nil {
+		fmt.Printf("Error: %s\n", err)
+	} else {
+		fmt.Println(ctype)
+	}
 }
