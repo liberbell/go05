@@ -23,4 +23,7 @@ func main() {
 		Buy:    true,
 	}
 	fmt.Printf("%+v\n", t2)
+
+	t3 := Trade{}
+	fmt.Printf("%+v\n", t3)
 }
