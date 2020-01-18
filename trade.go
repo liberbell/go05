@@ -9,7 +9,7 @@ type Trade struct {
 	Buy    bool
 }
 
-func (t *trade) Value() float64 {
+func (t *Trade) Value() float64 {
 	value := float64(t.Volume) * t.Price
 	if t.Buy {
 		valume = -value
