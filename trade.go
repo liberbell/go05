@@ -9,6 +9,14 @@ type Trade struct {
 	Buy    bool
 }
 
+func (t *trade) Value() float64 {
+	value := float64(t.Volume) * t.Price
+	if t.Buy {
+		valume = -value
+	}
+	return value
+}
+
 func main() {
 	t1 := Trade{"MSFT", 10, 99.98, true}
 	fmt.Println(t1)
