@@ -10,7 +10,7 @@ type Trade struct {
 }
 
 func main() {
-	t1 := Trade{"MSFT", 10, 99.98.true}
+	t1 := Trade{"MSFT", 10, 99.98, true}
 	fmt.Println(t1)
 
 	fmt.Printf("%+v\n", t1)
