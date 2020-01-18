@@ -12,7 +12,7 @@ type Trade struct {
 func (t *Trade) Value() float64 {
 	value := float64(t.Volume) * t.Price
 	if t.Buy {
-		valume = -value
+		value = -value
 	}
 	return value
 }
