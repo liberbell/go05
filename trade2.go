@@ -6,3 +6,9 @@ type Trade struct {
 	Price  float64
 	buy    bool
 }
+
+func NewTrade(symbol string, volume int, price float64, buy bool) (+Trade, error) {
+  if symbol == "" {
+    return nil, fmt.Errorf("symbol can`t be empty.")
+  }
+}
