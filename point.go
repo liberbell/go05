@@ -6,6 +6,6 @@ type Point struct {
 }
 
 func (p Point) Move(dx int, dy int) {
-	p.X = dx
-	p.y = dy
+	p.X += dx
+	p.y += dy
 }
