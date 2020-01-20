@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 type Trade struct {
 	Symbol string
@@ -29,4 +32,13 @@ func NewTrade(symbol string, volume int, price float64, buy bool) (*Trade, error
 		Buy:    buy,
 	}
 	return trade, nil
+}
+
+func main() {
+	t, err := NewTrade("MSFT", 10, 99.98, true)
+
+	if err != nil {
+		fmt.Printf("Error: can`t create trade - %s\n", err)
+		os.Exit(1)
+	}
 }
