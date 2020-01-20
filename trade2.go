@@ -43,7 +43,7 @@ func (t *Trade) Value() float64 {
 }
 
 func main() {
-	t, err := NewTrade("MSFT", 10, 99.98, true)
+	t, err := NewTrade("MSFT", 100, 99.98, false)
 
 	if err != nil {
 		fmt.Printf("Error: can`t create trade - %s\n", err)
