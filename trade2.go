@@ -41,4 +41,5 @@ func main() {
 		fmt.Printf("Error: can`t create trade - %s\n", err)
 		os.Exit(1)
 	}
+	fmt.Println(t.Value())
 }
