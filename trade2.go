@@ -28,4 +28,5 @@ func NewTrade(symbol string, volume int, price float64, buy bool) (*Trade, error
 		Price:  price,
 		Buy:    buy,
 	}
+	return trade, nil
 }
