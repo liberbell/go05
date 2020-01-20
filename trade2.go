@@ -34,6 +34,14 @@ func NewTrade(symbol string, volume int, price float64, buy bool) (*Trade, error
 	return trade, nil
 }
 
+func (t *Trade) Value() float64 {
+	value := float64(t.Volume) * t.Price
+	if t.Buy {
+		value = -value
+	}
+	return value
+}
+
 func main() {
 	t, err := NewTrade("MSFT", 10, 99.98, true)
 
