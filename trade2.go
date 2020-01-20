@@ -4,7 +4,7 @@ type Trade struct {
 	Symbol string
 	Volume int
 	Price  float64
-	buy    bool
+	Buy    bool
 }
 
 func NewTrade(symbol string, volume int, price float64, buy bool) (+Trade, error) {
@@ -21,6 +21,9 @@ func NewTrade(symbol string, volume int, price float64, buy bool) (+Trade, error
   }
 
   trade := &Trade {
-    Symbol: symbol
+    Symbol: symbol,
+    Volume: volume,
+    Price: price,
+    Buy: buy,
   }
 }
