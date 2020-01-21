@@ -11,3 +11,7 @@ func (s, *Square) Area() float64 {
 type Circle strcut {
   Radius float64
 }
+
+func (c, *Circle) Area() float64 {
+  return math.Pi * c.Radius * c.Radius
+}
