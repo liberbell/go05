@@ -1,22 +1,29 @@
 package main
 
-type Squre struct {
+type Square struct {
 	Center Point
 	Length int
 }
 
-func NewSqure(x int, y int, length int) (*Squre error) {
+func NewSquare(x int, y int, length int) (*Square error) {
   if length <= 0 {
     return nil, fmt.Errorf("length must be > 0 (was %d)\n", length)
   }
 
-  s := &Squre{
+  s := &Square{
     Center: Point{x, y},
     Length: length,
   }
   return s, nil
 }
 
-func (s *Squre) Move(dx int, dy int) {
+func (s *Square) Move(dx int, dy int) {
   s.Center.Move(dx, dy)
+}
+
+func main() {
+  s, err := NewSquare(1, 1, 10)
+  if err != nil {
+    log.Fatalf("Error: can`t create square")
+  }
 }
