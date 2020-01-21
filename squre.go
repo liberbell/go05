@@ -16,3 +16,7 @@ func NewSqure(x int, y int, length int) (*Squre error) {
   }
   return s, nil
 }
+
+func (s *Squre) Move(dx int, dy int) {
+  s.Center.Move(dx, dy)
+}
