@@ -14,4 +14,5 @@ func NewSqure(x int, y int, length int) (*Squre error) {
     Center: Point{x, y},
     Length: length,
   }
+  return s, nil
 }
