@@ -15,6 +15,11 @@ type Square struct {
 	Length int
 }
 
+func (p *Point) Move(dx int, dy int) {
+	p.X += dx
+	p.Y += dy
+}
+
 func NewSquare(x int, y int, length int) (*Square, error) {
 	if length <= 0 {
 		return nil, fmt.Errorf("length must be > 0 (was %d)\n", length)
