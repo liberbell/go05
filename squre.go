@@ -36,6 +36,10 @@ func (s *Square) Move(dx int, dy int) {
 	s.Center.Move(dx, dy)
 }
 
+func (s *Square) Area() int {
+	return s.Length * s.Length
+}
+
 func main() {
 	s, err := NewSquare(1, 1, 10)
 	if err != nil {
