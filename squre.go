@@ -5,6 +5,11 @@ import (
 	"log"
 )
 
+type Point struct {
+	X int
+	Y int
+}
+
 type Square struct {
 	Center Point
 	Length int
