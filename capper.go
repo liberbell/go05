@@ -26,5 +26,5 @@ func (c *Capper) Write(p []byte) (n int, err error) {
 
 func main() {
 	c := &Capper{os.Stdout}
-	fmt.Println(c, "Hello there")
+	fmt.Fprintln(c, "Hello there")
 }
