@@ -1,6 +1,10 @@
 package main
 
-import "io"
+import (
+	"fmt"
+	"io"
+	"os"
+)
 
 type Capper struct {
 	wtr io.Writer
@@ -18,4 +22,9 @@ func (c *Capper) Write(p []byte) (n int, err error) {
 	}
 
 	return c.wtr.Write(out)
+}
+
+func main() {
+	c := &Capper{os.Stdout}
+	fmt.Println(c, "Hello there")
 }
