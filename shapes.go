@@ -18,7 +18,7 @@ func (c, *Circle) Area() float64 {
 	return math.Pi * c.Radius * c.Radius
 }
 
-func sumAreas(shapes []shape) float64 {
+func sumAreas(shapes []Shape) float64 {
 	total := 0.0
 
 	for _, shape := range shapes {
