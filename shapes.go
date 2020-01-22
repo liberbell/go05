@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type Square struct {
 	Length float64
@@ -29,4 +32,12 @@ func sumAreas(shapes []Shape) float64 {
 
 type Shape interface {
 	Area() float64
+}
+
+func main() {
+	s := &Square{20}
+	fmt.Println(s.Area())
+
+	c := &Circle{10}
+	fmt.Println(c.Area())
 }
