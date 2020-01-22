@@ -26,3 +26,7 @@ func sumAreas(shapes []Shape) float64 {
 	}
 	return total
 }
+
+type Shape interface {
+	Area() float64
+}
