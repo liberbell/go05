@@ -24,4 +24,5 @@ func sumAreas(shapes []shape) float64 {
 	for _, shape := range shapes {
 		total += shape.Area()
 	}
+	return total
 }
