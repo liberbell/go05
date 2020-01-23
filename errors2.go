@@ -14,7 +14,7 @@ type Config struct {
 func readConfig(path string) (*Config, error) {
 	file, err := os.Open(path)
 	if err != nil {
-		return nil, errors.Wrap(err)
+		return nil, errors.Wrap(err, "can`t open configuration file")
 	}
 	defer file.Close()
 
