@@ -24,5 +24,6 @@ func main() {
 	cfg, err := readConfig("config.toml")
 	if err != nil {
 		fmt.Fprintf(os.Stdout, "error: %s\n", err)
+		os.Exit(1)
 	}
 }
