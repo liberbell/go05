@@ -11,4 +11,8 @@ func readConfig(path string) (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer file.Close()
+
+	cfg := &Config{}
+	return cfg, nil
 }
