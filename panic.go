@@ -1,6 +1,9 @@
 package main
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 	// vals := []int{1, 2, 3}
@@ -11,4 +14,5 @@ func main() {
 		panic(err)
 	}
 	defer file.Close()
+	fmt.Println("file opened")
 }
