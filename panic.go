@@ -5,6 +5,10 @@ import (
 	"os"
 )
 
+func safeValue() {
+  defer func()
+}
+
 func main() {
 	// vals := []int{1, 2, 3}
 	// v := vals[10]
