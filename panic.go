@@ -11,6 +11,7 @@ func safeValue(vals []int, index int) int {
 			fmt.Printf("ERROR: %s\n", err)
 		}
 	}()
+	return vals[index]
 }
 
 func main() {
