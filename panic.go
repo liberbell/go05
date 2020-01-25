@@ -25,5 +25,5 @@ func main() {
 	// fmt.Println("file opened")
 
 	v := safeValue([]int{1, 2, 3}, 10)
-	fmt.Printf(v)
+	fmt.Println(v)
 }
