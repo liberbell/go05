@@ -1,7 +1,14 @@
 package main
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+)
 
 func returnType(url string) {
 	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Printf("error: %s\n", err)
+		return
+	}
 }
