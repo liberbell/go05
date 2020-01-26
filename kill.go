@@ -4,6 +4,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strconv"
+	"strings"
 
 	"github.com/pkg/errors"
 )
@@ -17,9 +19,9 @@ func killServer(pidFile string) error {
 		log.Printf("warnign: can`t remove pid file - %s", err)
 	}
 
-  strPID := strings.TrimSpace(string(data))
-  pid, err := strconv.Atoi(strPID)
-  if err := nil {
-    return errors.Wrap(err, "bad process ID")
-  }
+	strPID := strings.TrimSpace(string(data))
+	pid, err := strconv.Atoi(strPID)
+	if err != nil {
+		return errors.Wrap(err, "bad process ID")
+	}
 }
