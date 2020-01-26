@@ -22,4 +22,8 @@ func main() {
 		"https://api.github.com",
 		"https://httpbin.org/xml",
 	}
+
+	for _, url := range urls {
+		returnType(url)
+	}
 }
