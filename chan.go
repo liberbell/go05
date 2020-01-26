@@ -14,4 +14,14 @@ func main() {
 
 	val := <-ch
 	fmt.Printf("Got: %d\n", val)
+
+	fmt.Println("--------")
+
+	go func() {
+		_for i := 0; i < 3; i++ {
+			fmt.Printf("sendign: %d\n", i)
+			ch <- i
+			time.Sleep(time.Second)
+		}
+	}
 }
