@@ -12,6 +12,6 @@ func main() {
 		ch <- 353
 	}
 
-	var := <-ch
+	val := <-ch
 	fmt.Printf("Got: %d\n", val)
 }
