@@ -26,6 +26,8 @@ func main() {
 	}
 
 	for _, url := range urls {
-		returnType(url)
+		go func(url string) {
+			return Type(url)
+		}(url)
 	}
 }
