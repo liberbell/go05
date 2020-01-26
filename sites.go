@@ -15,3 +15,11 @@ func returnType(url string) {
 	ctype := resp.Header.Get("content-type")
 	fmt.Printf("%s -> %s\n", url, ctype)
 }
+
+func main() {
+	urls := []string{
+		"https://golang.org",
+		"https://api.github.com",
+		"https://httpbin.org/xml",
+	}
+}
