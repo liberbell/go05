@@ -29,3 +29,9 @@ func killServer(pidFile string) error {
 	fmt.Printf("killing server with pid=%d\n", pid)
 	return nil
 }
+
+func main() {
+	if err := killServer("server.pid"); err != nil {
+		fmt.Fprintf(os.Stderr, "error: %s\n", err)
+	}
+}
