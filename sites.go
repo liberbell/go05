@@ -28,9 +28,10 @@ func main() {
 
 	var wg sync.WaitGroup
 	for _, url := range urls {
+		wg.Add(1)
 		go func(url string) {
-			wg.Add(1)
 			returnType(url)
+			wg.Done()
 		}(url)
 	}
 	wg.Wait()
