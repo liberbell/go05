@@ -10,7 +10,7 @@ func main() {
 
 	go func() {
 		ch <- 353
-	}
+	}()
 
 	val := <-ch
 	fmt.Printf("Got: %d\n", val)
