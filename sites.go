@@ -11,4 +11,7 @@ func returnType(url string) {
 		fmt.Printf("error: %s\n", err)
 		return
 	}
+	defer resp.Body.Close()
+	ctype := resp.Header.Get("content-type")
+	fmt.Printf("%s -> %s\n", url, ctype)
 }
