@@ -23,5 +23,5 @@ func main() {
 			ch <- i
 			time.Sleep(time.Second)
 		}
-	}
+	}()
 }
