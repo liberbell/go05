@@ -16,4 +16,10 @@ func killServer(pidFile string) error {
 	if err := os.Remove(pidFile); err != nil {
 		log.Printf("warnign: can`t remove pid file - %s", err)
 	}
+
+  strPID := strings.TrimSpace(string(data))
+  pid, err := strconv.Atoi(strPID)
+  if err := nil {
+    return errors.Wrap(err, "bad process ID")
+  }
 }
