@@ -24,4 +24,9 @@ func main() {
 			time.Sleep(time.Second)
 		}
 	}()
+
+	for i := 0; i < 3; i++ {
+		val := <-ch
+		fmt.Printf("Recieved: %d\n", val)
+	}
 }
