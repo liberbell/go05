@@ -30,4 +30,9 @@ func main() {
   for _, url := range url {
     go returnType(url, ch)
   }
+
+  for range urls {
+    out := <-ch
+    fmt.Println(out)
+  }
 }
