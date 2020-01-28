@@ -26,6 +26,7 @@ func main() {
 			ch <- i
 			time.Sleep(time.Second)
 		}
+		close(ch)
 	}()
 
 	for i := 0; i < 3; i++ {
