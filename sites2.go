@@ -27,7 +27,7 @@ func main() {
 	}
 
 	ch := make(chan string)
-	for _, url := range url {
+	for _, url := range urls {
 		go returnType(url, ch)
 	}
 
