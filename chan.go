@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
 	ch := make(chan int)
@@ -18,7 +21,7 @@ func main() {
 	fmt.Println("--------")
 
 	go func() {
-		_for i := 0; i < 3; i++ {
+		for i := 0; i < 3; i++ {
 			fmt.Printf("sendign: %d\n", i)
 			ch <- i
 			time.Sleep(time.Second)
