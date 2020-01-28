@@ -24,4 +24,10 @@ func main() {
     "https://httpbin.org/xml",
     "https://yahoo.co.jp",
     "https://www.ntt-at.co.jp",
+  }
+
+  ch := make(chan string)
+  for _, url := range url {
+    go returnType(url, ch)
+  }
 }
