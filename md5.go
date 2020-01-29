@@ -14,5 +14,12 @@ func parseSignaturesFile(path string) (map[string]string, error) {
     if len(fields) != 2 {
       return nil, fmt.Errorf("%s: %d bad line\n", path, lnum)
     }
+    sigs[fields[1]] = fields[0]
+  }
+
+  if err := scanner.Err(); err != nil {
+    return nil, err
+  }
+  return sigs, nil
   }
 }
