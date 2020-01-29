@@ -9,5 +9,10 @@ func parseSignaturesFile(path string) (map[string]string, error) {
 
   sigs := make(map[string]string)
   scanner := bufio.NewScanner(file)
-  for lnum := 1; scanner.Scan(); lnum++
+  for lnum := 1; scanner.Scan(); lnum++　{
+    fields := strings.Fields(scanner.Text())
+    if len(fields) != 2 {
+      return nil, fmt.Errorf("%s: %d bad line\n", path, lnum)
+    }
+  }
 }
