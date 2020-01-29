@@ -23,3 +23,7 @@ func parseSignaturesFile(path string) (map[string]string, error) {
   return sigs, nil
   }
 }
+
+func fileMD5(path string) (string, error) {
+  file, err := os.Open(path)
+}
