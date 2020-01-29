@@ -26,4 +26,9 @@ func main() {
 		time.Sleep(100 * time.Millisecond)
 		out <- 3.14
 	}()
+
+	select {
+	case val := <-out:
+		fmt.Printf("got %F\n", val)
+	}
 }
