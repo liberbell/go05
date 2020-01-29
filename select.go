@@ -30,5 +30,7 @@ func main() {
 	select {
 	case val := <-out:
 		fmt.Printf("got %F\n", val)
+	case time.After(200 * time.Millisecond):
+		fmt.Println("timeout")
 	}
 }
