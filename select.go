@@ -15,4 +15,12 @@ func main() {
 	case val := <-ch2:
 		fmt.Printf("got %d from ch2\n", val)
 	}
+
+	fmt.Println("--------")
+
+	out := make(chan float64)
+	go func() {
+		time.Sleep(100 * time.Millisecond)
+		out <- 3.14
+	}
 }
