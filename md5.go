@@ -26,4 +26,8 @@ func parseSignaturesFile(path string) (map[string]string, error) {
 
 func fileMD5(path string) (string, error) {
   file, err := os.Open(path)
+  if err != nil {
+    return ", err
+  }
+  defer file.Close()
 }
