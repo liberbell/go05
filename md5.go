@@ -35,4 +35,5 @@ func fileMD5(path string) (string, error) {
   if _, err := io.Copy(hash, file); err != nil {
     return "", err
   }
+  return fmt.Sprintf("%x", hash.Sum(nil)), nil
 }
