@@ -1,82 +1,91 @@
 package main
 
+import (
+	"bufio"
+	"crypto/md5"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strings"
+)
+
 func parseSignaturesFile(path string) (map[string]string, error) {
-  file, err := os.Open(path)
-  if err != nil {
-    return nil, err
-  }
-  defer file.Close()
+	file, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
 
-  sigs := make(map[string]string)
-  scanner := bufio.NewScanner(file)
-  for lnum := 1; scanner.Scan(); lnum++ {
-    fields := strings.Fields(scanner.Text())
-    if len(fields) != 2 {
-      return nil, fmt.Errorf("%s: %d bad line\n", path, lnum)
-    }
-    sigs[fields[1]] = fields[0]
-  }
+	sigs := make(map[string]string)
+	scanner := bufio.NewScanner(file)
+	for lnum := 1; scanner.Scan(); lnum++ {
+		fields := strings.Fields(scanner.Text())
+		if len(fields) != 2 {
+			return nil, fmt.Errorf("%s: %d bad line\n", path, lnum)
+		}
+		sigs[fields[1]] = fields[0]
+	}
 
-  if err := scanner.Err(); err != nil {
-    return nil, err
-  }
-  return sigs, nil
-  }
+	if err := scanner.Err(); err != nil {
+		return nil, err
+	}
+	return sigs, nil
 }
 
 func fileMD5(path string) (string, error) {
-  file, err := os.Open(path)
-  if err != nil {
-    return "", err
-  }
-  defer file.Close()
+	file, err := os.Open(path)
+	if err != nil {
+		return "", err
+	}
+	defer file.Close()
 
-  hash := md5.New()
-  if _, err := io.Copy(hash, file); err != nil {
-    return "", err
-  }
-  return fmt.Sprintf("%x", hash.Sum(nil)), nil
+	hash := md5.New()
+	if _, err := io.Copy(hash, file); err != nil {
+		return "", err
+	}
+	return fmt.Sprintf("%x", hash.Sum(nil)), nil
 }
 
 type result struct {
-  path string
-  match bool
-  err error
+	path  string
+	match bool
+	err   error
 }
 
 func md5Worker(path string, sig string, out chan *result) {
-  r := &result{path: path}
-  s, err := fileMD5(path)
-  if err != nil {
-    r.err = err
-    out <- r
-    return
-  }
-  r.match = (s == sig)
-  out <- r
+	r := &result{path: path}
+	s, err := fileMD5(path)
+	if err != nil {
+		r.err = err
+		out <- r
+		return
+	}
+	r.match = (s == sig)
+	out <- r
 }
 
 func main() {
-  sigs, err := parseSignatureFile("nasa-logs/md5sum.txt")
-  if err != nil {
-    log.Fatalf("Error: can`t read signature file - %s", err)
-  }
+	sigs, err := parseSignatureFile("nasa-logs/md5sum.txt")
+	if err != nil {
+		log.Fatalf("Error: can`t read signature file - %s", err)
+	}
 
-  out := make(chan *result)
-  for path, sig := range sigs {
-    go md5Worker(path, sig, out)
-  }
+	out := make(chan *result)
+	for path, sig := range sigs {
+		go md5Worker(path, sig, out)
+	}
 
-  ok := ture
-  for range sigs {
-    r := <-out
-    switch {
-    case r.err != nil:
-      fmt.Printf("%s: error - %s\n", r.path, r.err)
-      ok = false
-    case !r.match:
-      fmt.Printf("%s: signature mismatch\n", p.path)
-      ok = false
-    }
-  }
+	ok := ture
+	for range sigs {
+		r := <-out
+		switch {
+		case r.err != nil:
+			fmt.Printf("%s: error - %s\n", r.path, r.err)
+			ok = false
+		case !r.match:
+			fmt.Printf("%s: signature mismatch\n", p.path)
+			ok = false
+		}
+	}
 }
