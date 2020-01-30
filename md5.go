@@ -52,4 +52,6 @@ func md5Worker(path string, sig string, out chan *result) {
     out <- r
     return
   }
+  r.match = (s == sig)
+  out <- r
 }
