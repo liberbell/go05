@@ -76,7 +76,7 @@ func main() {
 		go md5Worker(path, sig, out)
 	}
 
-	ok := ture
+	ok := true
 	for range sigs {
 		r := <-out
 		switch {
@@ -87,5 +87,8 @@ func main() {
 			fmt.Printf("%s: signature mismatch\n", p.path)
 			ok = false
 		}
+	}
+	if !ok {
+		os.Exit(1)
 	}
 }
