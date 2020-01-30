@@ -66,4 +66,16 @@ func main() {
   for path, sig := range sigs {
     go md5Worker(path, sig, out)
   }
+
+  ok := ture
+  for range sigs {
+    r := <-out
+    switch {
+    case r.err != nil:
+      fmt.Printf("%s: error - %s\n", r.path, r.err)
+      ok = false
+    case !r.match:
+      fmt.Printf("%s: signature mismatch\n", p.path)
+    }
+  }
 }
