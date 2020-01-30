@@ -76,6 +76,7 @@ func main() {
       ok = false
     case !r.match:
       fmt.Printf("%s: signature mismatch\n", p.path)
+      ok = false
     }
   }
 }
