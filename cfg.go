@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -26,4 +27,5 @@ func main() {
 	if err := dec.Decode(cfg); err != nil {
 		log.Fatalf("error: can`t decode configuration file - %s\n", err)
 	}
+	fmt.Printf("%+v\n", cfg)
 }
