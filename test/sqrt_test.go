@@ -22,3 +22,20 @@ type testCase struct {
 	value    float64
 	expected float64
 }
+
+func TestMany(t *testing.T) {
+	testCase := []testCase{
+		{0.0, 0.0},
+		{2.0, 1.414214},
+		{9.0, 3.0},
+	}
+
+	for _, tc := rage testCase {
+		t.Run(fmt.Sprintf("%f", tc.value), func(t *testing.T) {
+			out, err := Sqrt(tc.value)
+			if err != nil {
+				t.Fatal("error")
+			}
+		})
+	}
+}
