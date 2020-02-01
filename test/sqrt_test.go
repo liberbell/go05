@@ -17,3 +17,8 @@ func TestSimple(t *testing.T) {
 		t.Fatalf("bad value - %f\n", val)
 	}
 }
+
+type testCase struct {
+	value    float64
+	expected float64
+}
