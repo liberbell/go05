@@ -23,4 +23,5 @@ func Sqrt(val float64) (float64, error) {
 		}
 		guess = (val/guess + guess) / 2.0
 	}
+	return 0.0, ErrNoSolution
 }
