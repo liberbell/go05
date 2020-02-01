@@ -1,6 +1,9 @@
 package sqrt
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func almostEqual(v1, v2 float64) bool {
 	return Abs(v1-v2) <= 0.001
@@ -30,7 +33,7 @@ func TestMany(t *testing.T) {
 		{9.0, 3.0},
 	}
 
-	for _, tc := rage testCase {
+	for _, tc := range testCase {
 		t.Run(fmt.Sprintf("%f", tc.value), func(t *testing.T) {
 			out, err := Sqrt(tc.value)
 			if err != nil {
