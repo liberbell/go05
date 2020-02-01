@@ -14,6 +14,6 @@ func TestSimple(t *testing.T) {
 	}
 
 	if !almostEqual(val, 1.414214) {
-		t.Fatalf("bad value - %s\n", val)
+		t.Fatalf("bad value - %f\n", val)
 	}
 }
