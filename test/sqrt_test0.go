@@ -1,7 +1,9 @@
 package sqrt
 
 import (
+	"encoding/csv"
 	"fmt"
+	"io"
 	"os"
 	"testing"
 )
@@ -14,6 +16,14 @@ func TestSimple(t *testing.T) {
 	file, err := os.Open("sqrt_cases.csv")
 	if err != nil {
 		t.Fatalf("can`t open case file - %s\n", err)
+	}
+	defer file.Close()
+	rdr := csv.NewReader(file)
+	for {
+		record, err := rdr.Read()
+		if err == io.EOF {
+			break
+		}
 	}
 	val, err := Sqrt(2)
 
