@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"log"
 )
 
@@ -28,4 +29,5 @@ func main() {
 	if err := dec.Decode(req); err != nil {
 		log.Fatalf("error: can`t decode - %s\n", err)
 	}
+	fmt.Printf("got: %+v\n", req)
 }
