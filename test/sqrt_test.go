@@ -24,8 +24,8 @@ func TestSimple(t *testing.T) {
 func BenchmarkSqrt(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_, err := Sqrt(float64(i))
-		if err 1= nil {
-			t.Fatal(err)
+		if err != nil {
+			b.Fatal(err)
 		}
 	}
 }
