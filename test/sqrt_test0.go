@@ -2,6 +2,7 @@ package sqrt
 
 import (
 	"fmt"
+	"os"
 	"testing"
 )
 
@@ -10,6 +11,10 @@ func almostEqual(v1, v2 float64) bool {
 }
 
 func TestSimple(t *testing.T) {
+	file, err := os.Open("sqrt_cases.csv")
+	if err != nil {
+		t.Fatalf("can`t open case file - %s\n", err)
+	}
 	val, err := Sqrt(2)
 
 	if err != nil {
