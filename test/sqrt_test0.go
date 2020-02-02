@@ -35,7 +35,7 @@ func TestSimple(t *testing.T) {
 			t.Fatalf("bad value - %s\n", record[0])
 		}
 
-		expected, err := setconv.ParseFloat(record[1], 64)
+		expected, err := strconv.ParseFloat(record[1], 64)
 		if err != nil {
 			t.Fatalf("bad value - %s\n", record[1])
 		}
