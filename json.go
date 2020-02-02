@@ -27,7 +27,7 @@ func main() {
 	dec := json.NewDecoder(rdr)
 
 	req := &Request{}
-	if err := dec.NewEncoder(req); err != nil {
+	if err := dec.Decode(req); err != nil {
 		log.Fatalf("error: can`t decode - %s\n", err)
 	}
 	fmt.Printf("got: %+v\n", req)
@@ -37,7 +37,7 @@ func main() {
 		"ok":      true,
 		"balance": prevBalance + req.Amount,
 	}
-	enc := json.NewDecoder(os.Stdout)
+	enc := json.NewEncoder(os.Stdout)
 	if err := enc.Encode(resp); err != nil {
 		log.Fatalf("error: can`t encode - %s\n", err)
 	}
