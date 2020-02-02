@@ -31,6 +31,10 @@ func TestSimple(t *testing.T) {
 		}
 
 		val, err := strconv.ParseFloat(record[0], 64)
+		if err != nil {
+			t.Fatalf("bad value - %s\n", record[0])
+		}
+
 	}
 	val, err := Sqrt(2)
 
