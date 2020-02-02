@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strconv"
 	"testing"
 )
 
@@ -24,6 +25,12 @@ func TestSimple(t *testing.T) {
 		if err == io.EOF {
 			break
 		}
+
+		if err != nil {
+			t.Fatalf("error reading case file - %s\n", err)
+		}
+
+		val, err := strconv.ParseFloat(record[0], 64)
 	}
 	val, err := Sqrt(2)
 
