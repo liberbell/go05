@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	resp, err := http.Get("https://httpbin.org/get")
+	resp, err := http.Get("https://httpbin.og/get")
 	if err != nil {
 		log.Fatalf("Error: can`t call httpbin.org")
 	}
