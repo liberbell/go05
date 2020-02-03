@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 type User struct {
 	Name        string `json: "Name"`
@@ -9,5 +12,9 @@ type User struct {
 
 func userInfo(login string) (*User, error) {
 	url := fmt.Sprintf("https://api.github.com/users/%s", login)
-
+	resp, err := http.Get(url)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
 }
