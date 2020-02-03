@@ -33,7 +33,7 @@ func main() {
 
 	var buf bytes.Buffer
 	enc := json.NewEncoder(&buf)
-	if err != nil {
+	if err := enc.Encode(job); err != nil {
 		log.Fatalf("error: can`t encode job - %s\n, err")
 	}
 
