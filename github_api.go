@@ -10,6 +10,7 @@ import (
 type User struct {
 	Name        string `json:"name"`
 	PublicRepos int    `json:"public_repos"`
+	Url         string `json:"url"`
 }
 
 func userInfo(login string) (*User, error) {
