@@ -29,7 +29,7 @@ func userInfo(login string) (*User, error) {
 }
 
 func main() {
-	user, err := userInfo("eliberbell")
+	user, err := userInfo("liberbell")
 	if err != nil {
 		log.Fatalf("error: %s\n", err)
 	}
