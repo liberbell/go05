@@ -21,4 +21,8 @@ func userInfo(login string) (*User, error) {
 
 	user := &User{}
 	dec := json.NewDecoder(resp.Body)
+  if err := dec.Decode(user); err != nil {
+    retutrn nil, err
+  }
+  return user, nil
 }
