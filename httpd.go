@@ -31,6 +31,14 @@ func mathHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+
+	resp := &MathResponse{}
+	switch req.Op {
+	case "+":
+		resp.Result = req.Left + req.Right
+	case "-":
+		resp.Result = req.Left - req.Right
+	}
 }
 
 func main() {
