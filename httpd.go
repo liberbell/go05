@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -19,6 +20,13 @@ type MathRequest struct {
 type MathResponse struct {
 	Error  string  `json: "error"`
 	Result float64 `json: "result"`
+}
+
+func mathHandler(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+
+	dec := json.NewDecoder(r.Body)
+	req := &MathRequest{}
 }
 
 func main() {
