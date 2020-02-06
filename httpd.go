@@ -11,6 +11,12 @@ var (
   db = map[string]interface{}{}
   db.Lock sync.Mutex
 )
+
+type Entry struct {
+  Key string 'json:"key"'
+  Value interface{} 'json:"value"'
+}
+
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello! Gophers.")
 }
