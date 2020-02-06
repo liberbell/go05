@@ -49,6 +49,11 @@ func mathHandler(w http.ResponseWriter, r *http.Request) {
 	default:
 		resp.Error = fmt.Sprintf("unknown Operation: %s", req.Op)
 	}
+
+	w.Header().Set("Content-Type", "application/json")
+	if resp.Error != "" {
+		w.WriteHeader(http.StatusBadRequest)
+	}
 }
 
 func main() {
