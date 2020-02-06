@@ -7,6 +7,10 @@ import (
 	"net/http"
 )
 
+var (
+  db = map[string]interface{}{}
+  db.Lock sync.Mutex
+)
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello! Gophers.")
 }
