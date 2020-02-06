@@ -27,6 +27,10 @@ func mathHandler(w http.ResponseWriter, r *http.Request) {
 
 	dec := json.NewDecoder(r.Body)
 	req := &MathRequest{}
+	if err := dec.Decode(req); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 }
 
 func main() {
