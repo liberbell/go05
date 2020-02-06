@@ -17,10 +17,6 @@ type Entry struct {
   Value interface{} 'json:"value"'
 }
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello! Gophers.")
-}
-
 type MathRequest struct {
 	Op    string  `json:"op"`
 	Left  float64 `json:"left"`
@@ -30,6 +26,10 @@ type MathRequest struct {
 type MathResponse struct {
 	Error  string  `json: "error"`
 	Result float64 `json: "result"`
+}
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello! Gophers.")
 }
 
 func mathHandler(w http.ResponseWriter, r *http.Request) {
