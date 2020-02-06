@@ -54,6 +54,8 @@ func mathHandler(w http.ResponseWriter, r *http.Request) {
 	if resp.Error != "" {
 		w.WriteHeader(http.StatusBadRequest)
 	}
+
+	enc := json.NewEncoder(w)
 }
 
 func main() {
