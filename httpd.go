@@ -41,7 +41,13 @@ func mathHandler(w http.ResponseWriter, r *http.Request) {
 	case "*":
 		resp.Result = req.Left * req.Right
 	case "/":
-		resp.Result = req.Left / req.Right
+		if req.Right == 0.0 {
+			resp.Error = "divided by zero"
+		} else {
+			resp.Result = req.Left / req.Right
+		}
+	default:
+		resp.Error = fmt.Sprintf("unknown Operation: %s", req.Op)
 	}
 }
 
