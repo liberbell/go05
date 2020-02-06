@@ -16,6 +16,11 @@ type MathRequest struct {
 	Right float64 `json:"right"`
 }
 
+type MathResponse struct {
+	Error  string `json: "error"`
+	Result string `json: "result"`
+}
+
 func main() {
 	http.HandleFunc("/hello", helloHandler)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
