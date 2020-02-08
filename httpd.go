@@ -51,6 +51,9 @@ func kvPostHandler(w http.ResponseWriter, r *http.Request) {
   sendResponse(entry, w)
 }
 
+func kvGetHandler(w http.ResponseWriter, r *http.Request) {
+  test
+}
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello! Gophers.")
 }
