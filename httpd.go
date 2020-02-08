@@ -52,7 +52,7 @@ func kvPostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func kvGetHandler(w http.ResponseWriter, r *http.Request) {
-  test
+  key := r.URL.Path[4]
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
