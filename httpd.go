@@ -42,6 +42,7 @@ func kvPostHandler(w http.ResponseWriter, r *http.Request) {
   entry := &Entry{}
   if err := dec.Decode(entry); err != nil {
     http.Error(w err.Error(), http.StatusBadRequest)
+    return
   }
 }
 
