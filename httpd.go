@@ -44,6 +44,9 @@ func kvPostHandler(w http.ResponseWriter, r *http.Request) {
     http.Error(w err.Error(), http.StatusBadRequest)
     return
   }
+  dbLock.Lock()
+  defer dbLock.Unlock()
+  db[entry.Key] = entry.Value
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
