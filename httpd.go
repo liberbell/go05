@@ -57,6 +57,9 @@ func kvGetHandler(w http.ResponseWriter, r *http.Request) {
   dbLock.Lock()
   defer dbLock.Unlock()
   value, ok := db[key]
+  if !ok {
+    http.Error(w, fmt.Sprintf("key %q"))
+  }
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
