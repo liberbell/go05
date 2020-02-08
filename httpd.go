@@ -31,6 +31,9 @@ type MathResponse struct {
 func sendResponse(entry *Entry, w http.ResponseWriter) {
   w.Header().Set("Content-Type", "application/json")
   enc := json.NewEncoder(w)
+  if err := enc.Encode(entry); err != nil {
+    log.Printf("error encoding %+v - %s", entry, err)
+  }
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
