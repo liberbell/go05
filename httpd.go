@@ -36,6 +36,10 @@ func sendResponse(entry *Entry, w http.ResponseWriter) {
   }
 }
 
+func kvPostHandler(w http.ResponseWriter, r *http.Request) {
+  defer r.Body.Close()
+}
+
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello! Gophers.")
 }
