@@ -40,7 +40,9 @@ func kvPostHandler(w http.ResponseWriter, r *http.Request) {
   defer r.Body.Close()
   dec := json.NewDecoder(r.Body)
   entry := &Entry{}
-  
+  if err := dec.Decode(entry); err != nil {
+    http.Error(w err.Error(), http.StatusBadRequest)
+  }
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
