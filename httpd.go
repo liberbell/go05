@@ -18,16 +18,16 @@ type Entry struct {
 	Value interface{} `json:"value"`
 }
 
-type MathRequest struct {
-	Op    string  `json:"op"`
-	Left  float64 `json:"left"`
-	Right float64 `json:"right"`
-}
-
-type MathResponse struct {
-	Error  string  `json: "error"`
-	Result float64 `json: "result"`
-}
+// type MathRequest struct {
+// 	Op    string  `json:"op"`
+// 	Left  float64 `json:"left"`
+// 	Right float64 `json:"right"`
+// }
+//
+// type MathResponse struct {
+// 	Error  string  `json: "error"`
+// 	Result float64 `json: "result"`
+// }
 
 func sendResponse(entry *Entry, w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
