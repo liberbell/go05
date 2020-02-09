@@ -70,48 +70,48 @@ func kvGetHandler(w http.ResponseWriter, r *http.Request) {
 	sendResponse(entry, w)
 }
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello! Gophers.")
-}
-
-func mathHandler(w http.ResponseWriter, r *http.Request) {
-	defer r.Body.Close()
-
-	dec := json.NewDecoder(r.Body)
-	req := &MathRequest{}
-	if err := dec.Decode(req); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
-
-	resp := &MathResponse{}
-	switch req.Op {
-	case "+":
-		resp.Result = req.Left + req.Right
-	case "-":
-		resp.Result = req.Left - req.Right
-	case "*":
-		resp.Result = req.Left * req.Right
-	case "/":
-		if req.Right == 0.0 {
-			resp.Error = "divided by zero"
-		} else {
-			resp.Result = req.Left / req.Right
-		}
-	default:
-		resp.Error = fmt.Sprintf("unknown Operation: %s", req.Op)
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	if resp.Error != "" {
-		w.WriteHeader(http.StatusBadRequest)
-	}
-
-	enc := json.NewEncoder(w)
-	if err := enc.Encode(resp); err != nil {
-		log.Printf("can`t encode %v - %s", resp, err)
-	}
-}
+// func helloHandler(w http.ResponseWriter, r *http.Request) {
+// 	fmt.Fprintf(w, "Hello! Gophers.")
+// }
+//
+// func mathHandler(w http.ResponseWriter, r *http.Request) {
+// 	defer r.Body.Close()
+//
+// 	dec := json.NewDecoder(r.Body)
+// 	req := &MathRequest{}
+// 	if err := dec.Decode(req); err != nil {
+// 		http.Error(w, err.Error(), http.StatusBadRequest)
+// 		return
+// 	}
+//
+// 	resp := &MathResponse{}
+// 	switch req.Op {
+// 	case "+":
+// 		resp.Result = req.Left + req.Right
+// 	case "-":
+// 		resp.Result = req.Left - req.Right
+// 	case "*":
+// 		resp.Result = req.Left * req.Right
+// 	case "/":
+// 		if req.Right == 0.0 {
+// 			resp.Error = "divided by zero"
+// 		} else {
+// 			resp.Result = req.Left / req.Right
+// 		}
+// 	default:
+// 		resp.Error = fmt.Sprintf("unknown Operation: %s", req.Op)
+// 	}
+//
+// 	w.Header().Set("Content-Type", "application/json")
+// 	if resp.Error != "" {
+// 		w.WriteHeader(http.StatusBadRequest)
+// 	}
+//
+// 	enc := json.NewEncoder(w)
+// 	if err := enc.Encode(resp); err != nil {
+// 		log.Printf("can`t encode %v - %s", resp, err)
+// 	}
+// }
 
 func main() {
 	// http.HandleFunc("/hello", helloHandler)
