@@ -66,6 +66,7 @@ func kvGetHandler(w http.ResponseWriter, r *http.Request) {
     Key: key,
     Value: value,
   }
+  sendResponse(entry, w)
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
