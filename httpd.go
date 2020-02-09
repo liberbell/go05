@@ -14,7 +14,7 @@ var (
 )
 
 type Entry struct {
-	Key   string      `json: "key"`
+	Key   string      `json:"key"`
 	Value interface{} `json:"value"`
 }
 
