@@ -9,7 +9,7 @@ import (
 
 var (
   db = map[string]interface{}{}
-  db.Lock sync.Mutex
+  dbLock sync.Mutex
 )
 
 type Entry struct {
