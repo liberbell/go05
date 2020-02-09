@@ -61,6 +61,11 @@ func kvGetHandler(w http.ResponseWriter, r *http.Request) {
     http.Error(w, fmt.Sprintf("key %q not fount.", key), http.StatusNotFound)
     return
   }
+
+  entry := &Entry{
+    Key: key,
+    Value: value,
+  }
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
