@@ -5,16 +5,17 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"sync"
 )
 
 var (
-  db = map[string]interface{}{}
-  dbLock sync.Mutex
+	db     = map[string]interface{}{}
+	dbLock sync.Mutex
 )
 
 type Entry struct {
-  Key string `json: "key"`
-  Value interface{} `json:"value"`
+	Key   string      `json: "key"`
+	Value interface{} `json:"value"`
 }
 
 type MathRequest struct {
@@ -29,44 +30,44 @@ type MathResponse struct {
 }
 
 func sendResponse(entry *Entry, w http.ResponseWriter) {
-  w.Header().Set("Content-Type", "application/json")
-  enc := json.NewEncoder(w)
-  if err := enc.Encode(entry); err != nil {
-    log.Printf("error encoding %+v - %s", entry, err)
-  }
+	w.Header().Set("Content-Type", "application/json")
+	enc := json.NewEncoder(w)
+	if err := enc.Encode(entry); err != nil {
+		log.Printf("error encoding %+v - %s", entry, err)
+	}
 }
 
 func kvPostHandler(w http.ResponseWriter, r *http.Request) {
-  defer r.Body.Close()
-  dec := json.NewDecoder(r.Body)
-  entry := &Entry{}
-  if err := dec.Decode(entry); err != nil {
-    http.Error(w err.Error(), http.StatusBadRequest)
-    return
-  }
-  dbLock.Lock()
-  defer dbLock.Unlock()
-  db[entry.Key] = entry.Value
+	defer r.Body.Close()
+	dec := json.NewDecoder(r.Body)
+	entry := &Entry{}
+	if err := dec.Decode(entry); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	dbLock.Lock()
+	defer dbLock.Unlock()
+	db[entry.Key] = entry.Value
 
-  sendResponse(entry, w)
+	sendResponse(entry, w)
 }
 
 func kvGetHandler(w http.ResponseWriter, r *http.Request) {
-  key := r.URL.Path[4]
+	key := r.URL.Path[4]
 
-  dbLock.Lock()
-  defer dbLock.Unlock()
-  value, ok := db[key]
-  if !ok {
-    http.Error(w, fmt.Sprintf("key %q not fount.", key), http.StatusNotFound)
-    return
-  }
+	dbLock.Lock()
+	defer dbLock.Unlock()
+	value, ok := db[key]
+	if !ok {
+		http.Error(w, fmt.Sprintf("key %q not fount.", key), http.StatusNotFound)
+		return
+	}
 
-  entry := &Entry{
-    Key: key,
-    Value: value,
-  }
-  sendResponse(entry, w)
+	entry := &Entry{
+		Key:   key,
+		Value: value,
+	}
+	sendResponse(entry, w)
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -115,8 +116,8 @@ func mathHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// http.HandleFunc("/hello", helloHandler)
 	// http.HandleFunc("/math", mathHandler)
-  http.HandleFunc("/db", kvPostHandler)
-  http.HandleFunc("/db/", kvGetHandler)
+	http.HandleFunc("/db", kvPostHandler)
+	http.HandleFunc("/db/", kvGetHandler)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
